@@ -1,0 +1,49 @@
+1. create setup.py
+
+-- add setup details to create package
+
+2. create requirements.txt
+
+3. create dir sensor, inside the folder create 
+pipeline - training & testing process, capture and handle all exceptions,
+ components- we will create ml components here ,
+ data_access - to get data from mongo db  , 
+ configuartion - to maintain connection related cofiguration , 
+ constant- modelname, fiel names and names to main for coding,
+  cloud storage - to maintain s3 buckets ( how to manage files across clouds),
+  entity - define structure of o/p and i/p after every ml component ,
+   ml- graph, losses and feature engineering steps, custom built models
+
+4. inside every dir create __int__.py file, 
+    constant --> database.py, env_varibale.py, application.py (port number , host id), s3 bucket.py (aws directory and file detials)
+        constant > training_pipeline --> it will contain the constant related to the training pipelines
+            __init__.py file --> mentioning all constant related to training pipeline 
+
+    configuration -->mongo_db.connection.py ( how to read database data)
+    pipeline --> exception.py, logger.py 
+    entity --> artifact_entity.py, config_entity.py
+
+5. const > env_variable.py - write all key secrerets like Db_URl exception or set it as environment varibale
+export MONGO_DB_URL="mongodb+srv://nik18:Zasxcdfv123@cluster0.rvbggcu.mongodb.net/"
+echo $MONGO_DB_URL
+AWS_ACCESS_KEY_IO_ENV_KEY
+AWS_SECRET_ACCESS_KEY_ENV_KEY
+
+6, inside const > traininng pipeline  >  __init__.py create all constant which can used in data ingestion, 
+
+Data Ingestion config --> Inititate Data Ingestion --> Export data to Feature Store --> Drop Columns --> split adta train test split
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
