@@ -2,23 +2,10 @@ from sensor.configuration.mongo_db_connection import MongoDBClient
 from sensor.pipeline.exception import SensorException
 from sensor.pipeline.logger import logging
 import os,sys
-
-def test_Exception():
-    try:
-        logging.info("we are dividing a number by zero.")
-        x=1/0
-    except Exception as e:
-        raise SensorException(e,sys)
-
+from sensor.entity.config_entity import TrainingPipelineConfig,DataIngestionConfig
 
 if __name__ == '__main__':
+    training_pipeline_config=TrainingPipelineConfig()
+    dat_ingestion_config=DataIngestionConfig(training_pipeline_config)
+    print(dat_ingestion_config.__dict__)
 
-    try:
-        test_Exception()
-    except Exception as e:
-        print(e)
-
-    
-
-    mongodb_client = MongoDBClient()
-    print("collection name:",mongodb_client.database.list_collection_names())
